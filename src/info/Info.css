@@ -7,26 +7,43 @@
   background-image: url('./background 1.jpg')
 }
 
-.header {
+.headerInfo {
   position: relative;
-  height: 200px;
+  display: flex;
+  height: 60px;
   margin-top: 0;
   width: 100%;
 }
 
-.back {
+.out {
   position: relative;
   height: 50px;
-  padding-top: 50px; 
+  padding-top: 10px; 
   width: 50px; 
   margin-left: 50px;
 }
 
+.tips1 {
+  font-size: 16px;
+  line-height: 50px;
+  padding-top: 10px;
+  color: grey;
+}
+
+.welcome {
+  font-size: 20px;
+  line-height: 50px;
+  padding-top: 10px;
+  margin-left: 100px
+}
+
 .detail {
   position: relative;
+  display: flex;
   height: 300px;
   width: 100%;
   font-size: 30px;
+  margin-top: 50px;
 }
 
 .jump {
@@ -34,7 +51,7 @@
   display: flex;
   height: 50px;
   width: 150px; 
-  padding-left: 20%;
+  padding-left: 10%;
 }
 
 .tips {
@@ -47,7 +64,7 @@
   position: absolute;
   height: 600px;
   width: 600px;
-  top: 100px;
+  bottom: 0;
   right: 0;
 }
 
@@ -55,8 +72,8 @@
   position: absolute;
   width: 400px;
   padding: 80px 30px;
-  top: 100px;
-  right: 500px;
+  bottom: 600px;
+  right: 0;
   background-color: #87CEEB;
   border-radius: 50% / 50%;
   font-size: 20px;
@@ -67,8 +84,8 @@
   width: 40px;
   height: 40px;
   border-radius: 20px;
-  right: -50px;
-  bottom: 40px;
+  right: 150px;
+  bottom: -50px;
   background-color: #87CEEB;
 }
 
@@ -77,9 +94,9 @@
   width: 20px;
   height: 20px;
   border-radius: 10px;
-  right: -80px;
+  right: 200px;
   background-color: #87CEEB;
-  bottom: 35px;
+  bottom: -80px;
 }
 
 .linkMask {
