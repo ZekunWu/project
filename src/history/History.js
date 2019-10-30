@@ -116,7 +116,7 @@ series: [
 class History extends React.Component{
     render() {
         return (
-            <div className="body">
+            <div className="bodyHistory">
                 <div className='header'>
                     <div className='back'>
                         <img style={{ position: 'relative', height: '100%', width: '100%' }} src={backImg} alt='' />
