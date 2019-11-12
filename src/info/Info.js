@@ -56,7 +56,9 @@ const Option2 = {
 class Info extends React.Component{
 
   state = {
-    curTime: ''
+    curTime: '',
+    temper: 0,
+    humid: 0,
   }
 
   componentDidMount() {
@@ -65,6 +67,10 @@ class Info extends React.Component{
         curTime: new Date().toLocaleString()
       })
     }, 1000)
+    axios.post('localhost:8080/info')
+      .then(res => {
+        console.log(res)
+      })
   }
 
   render() {
@@ -80,8 +86,8 @@ class Info extends React.Component{
             <div className='tips1'>退出登录</div>
           </div>
           <div className='detail'>
-            <div style={{paddingLeft: '50px'}}>当前温度：15 摄氏度</div>
-            <div style={{paddingLeft: '10%'}}>当前湿度：70%</div>
+            <div style={{paddingLeft: '50px'}}>当前温度：{this.state.temper} 摄氏度</div>
+            <div style={{paddingLeft: '10%'}}>当前湿度：{this.state.humid} %</div>
             <div className='jump' >
               <div>
                 <img style={{height: '50px', width: '50px'}} src={detailImg} alt='' />
