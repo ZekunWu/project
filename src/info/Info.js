@@ -7,59 +7,15 @@ import detailImg from './detail.png'
 import girlImg from './girl.png'
 import logoutImg from './logout.png'
 
-const Option1 = {
-  xAxis: {
-      type: 'category',
-      boundaryGap : false,
-      axisLine: {onZero: false},
-      data : [
-          '2019/10/28 0:00', '2019/10/28 1:00', '2019/10/28 2:00', '2019/10/28 3:00', '2019/10/28 4:00', '2019/10/28 5:00', '2019/10/28 6:00'
-      ].map(function (str) {
-          return str.replace(' ', '\n')
-      })
-  },
-  yAxis: {
-      name: '温度(摄氏度)',
-      type: 'value',
-      max: 50,
-  },
-  series: [{
-      data: [11, 10, 9, 7, 8, 9, 10],
-      type: 'line',
-      smooth: true
-  }]
-};
-
-const Option2 = {
-  xAxis: {
-      type: 'category',
-      boundaryGap : false,
-      axisLine: {onZero: false},
-      data : [
-          '2019/10/28 0:00', '2019/10/28 1:00', '2019/10/28 2:00', '2019/10/28 3:00', '2019/10/28 4:00', '2019/10/28 5:00', '2019/10/28 6:00'
-      ].map(function (str) {
-          return str.replace(' ', '\n')
-      })
-  },
-  yAxis: {
-      name: '湿度（%）',
-      type: 'value',
-      max: 100,
-  },
-  series: [{
-      data: [51, 53, 52, 64, 64, 75, 80],
-      type: 'line',
-      smooth: true
-  }]
-};
-
-
 class Info extends React.Component{
 
   state = {
     curTime: '',
     temper: 0,
     humid: 0,
+    timeArray: [],
+    temperArray: [],
+    humidArray: []
   }
 
   componentDidMount() {
@@ -73,12 +29,61 @@ class Info extends React.Component{
         // console.log(res)
         this.setState({
           temper: res.oj.temperature,
-          humid: res.oj.humidity
+          humid: res.oj.humidity,
+          timeArray: res.oj.times,
+          temperArray: res.oj.tems,
+          humidArray: res.oj.hums
         })
       })
   }
 
   render() {
+
+    let Option1 = {
+      xAxis: {
+          type: 'category',
+          boundaryGap : false,
+          axisLine: {onZero: false},
+          data : this.state.timeArray.map(function (str) {
+              return str.replace(' ', '\n')
+          })
+      },
+      yAxis: {
+          name: '温度(摄氏度)',
+          type: 'value',
+          max: 50,
+      },
+      series: [{
+          data: this.state.temperArray,
+          type: 'line',
+          smooth: true
+      }]
+    };
+
+    let Option2 = {
+      xAxis: {
+          type: 'category',
+          boundaryGap : false,
+          axisLine: {onZero: false},
+          data : [
+              '2019/10/28 0:00', '2019/10/28 1:00', '2019/10/28 2:00', '2019/10/28 3:00', '2019/10/28 4:00', '2019/10/28 5:00', '2019/10/28 6:00'
+          ].map(function (str) {
+              return str.replace(' ', '\n')
+          })
+      },
+      yAxis: {
+          name: '湿度（%）',
+          type: 'value',
+          max: 100,
+      },
+      series: [{
+          data: this.state.humidArray,
+          type: 'line',
+          smooth: true
+      }]
+    };
+    
+
     return (
       <div className="page">
           <div className='headerInfo'>
