@@ -68,9 +68,13 @@ class Info extends React.Component{
         curTime: new Date().toLocaleString()
       })
     }, 1000)
-    axios.post('localhost:8080/info')
+    axios.post('http://localhost:8080/info')
       .then(res => {
-        console.log(res)
+        // console.log(res)
+        this.setState({
+          temper: res.oj.temperature,
+          humid: res.oj.humidity
+        })
       })
   }
 
