@@ -18,9 +18,9 @@ class History extends React.Component{
         .then(res => {
             // console.log(res)
             this.setState({
-                timeArray: res.oj.times,
-                temper: res.oj.tems,
-                humid: res.oj.hums
+                timeArray: res.data.oj.times,
+                temperArray: res.data.oj.tems,
+                humidArray: res.data.oj.hums
             })
         })
     }

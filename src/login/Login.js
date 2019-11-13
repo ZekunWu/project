@@ -8,13 +8,13 @@ class Login extends React.Component{
   constructor(props){
     super()
     this.state = {
-      errState: 'block'
+      errState: 'none'
     }
   }
   jump = () => {
     axios.post('http://localhost:8080/login', { id: document.getElementById('id').value, password: document.getElementById('password').value })
       .then(res => {
-        if(res.er_code === 0) {
+        if(res.data.er_code === 0) {
           this.props.history.push('/info')
         } else {
           this.setState({

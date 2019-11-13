@@ -28,11 +28,11 @@ class Info extends React.Component{
       .then(res => {
         // console.log(res)
         this.setState({
-          temper: res.oj.temperature,
-          humid: res.oj.humidity,
-          timeArray: res.oj.times,
-          temperArray: res.oj.tems,
-          humidArray: res.oj.hums
+          temper: res.data.oj.temperature,
+          humid: res.data.oj.humidity,
+          timeArray: res.data.oj.times,
+          temperArray: res.data.oj.tems,
+          humidArray: res.data.oj.hums
         })
       })
   }
@@ -65,9 +65,7 @@ class Info extends React.Component{
           type: 'category',
           boundaryGap : false,
           axisLine: {onZero: false},
-          data : [
-              '2019/10/28 0:00', '2019/10/28 1:00', '2019/10/28 2:00', '2019/10/28 3:00', '2019/10/28 4:00', '2019/10/28 5:00', '2019/10/28 6:00'
-          ].map(function (str) {
+          data : this.state.timeArray.map(function (str) {
               return str.replace(' ', '\n')
           })
       },
