@@ -5,7 +5,8 @@ import './index.css';
 import Login from './login/Login';
 import Info from './info/Info';
 import Detail from './detail/Detail';
-import History from './history/History'
+import History from './history/History';
+import Test from './test/index'
 
 ReactDOM.render(
     <Router>
@@ -13,5 +14,6 @@ ReactDOM.render(
         <Route exact path='/info' component={Info} />
         <Route exact path='/detail' component={Detail} />
         <Route exact path='/history' component={History} />
+        <Route exact path='/test' component={Test} />
     </Router>, document.getElementById('root'));
 

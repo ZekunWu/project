@@ -24,9 +24,9 @@ class Info extends React.Component{
         curTime: new Date().toLocaleString()
       })
     }, 1000)
-    axios.post('http://localhost:8080/info')
+    axios.post('http://47.100.118.78:8080/info')
       .then(res => {
-        // console.log(res)
+        console.log(res)
         this.setState({
           temper: res.data.oj.temperature,
           humid: res.data.oj.humidity,
@@ -85,7 +85,7 @@ class Info extends React.Component{
     return (
       <div className="page">
           <div className='headerInfo'>
-            <div className='welcome'>欢迎你，用户xxx</div>
+            {/* <div className='welcome'>欢迎你，用户xxx</div> */}
             <div className='welcome'>当前时间是：{this.state.curTime}</div>
             <div className='out'>
                 <img style={{ position: 'relative', height: '100%', width: '100%' }} src={logoutImg} alt='' />

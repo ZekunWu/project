@@ -12,7 +12,7 @@ class Login extends React.Component{
     }
   }
   jump = () => {
-    axios.post('http://localhost:8080/login', { id: document.getElementById('id').value, password: document.getElementById('password').value })
+    axios.post('http://47.100.118.78:8080/login', { id: document.getElementById('id').value, password: document.getElementById('password').value })
       .then(res => {
         if(res.data.er_code === 0) {
           this.props.history.push('/info')
