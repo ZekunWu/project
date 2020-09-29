@@ -14,7 +14,7 @@ class History extends React.Component{
     }
 
     getValue = () => {
-        Axios.post('http://www.hhhhh.store/add')
+        Axios.post('http://www.hhhhh.store/api/add')
             .then(res => {
                 console.log(res)
             })
