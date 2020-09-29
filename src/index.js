@@ -10,10 +10,10 @@ import Test from './test/index'
 
 ReactDOM.render(
     <Router>
-        <Route exact path='/' component={Login} />
+        <Route exact path='/' component={Test} />
         <Route exact path='/info' component={Info} />
         <Route exact path='/detail' component={Detail} />
         <Route exact path='/history' component={History} />
-        <Route exact path='/test' component={Test} />
+        <Route exact path='/test' component={Login} />
     </Router>, document.getElementById('root'));
 

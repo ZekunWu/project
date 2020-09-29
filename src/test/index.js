@@ -1,11 +1,5 @@
-import React from 'react';
-import CodeMirror from 'react-cmirror'
-import 'codemirror/mode/clike/clike'
-import 'codemirror/theme/monokai.css'
-import 'codemirror/theme/neat.css'
-import 'codemirror/theme/ambiance.css'
-import 'codemirror/addon/hint/show-hint'
-import 'codemirror/addon/hint/javascript-hint'
+import React from 'react'
+import CodeMirror from '../component/react-mirror'
 import Axios from 'axios';
 import './index.css'
 
@@ -20,10 +14,14 @@ class History extends React.Component{
     }
 
     getValue = () => {
-        Axios.get('https://codingstep.oss-cn-qingdao.aliyuncs.com/codeJava/3/54f8cf06-a599-4c98-9f51-5e850fab4dd7.java')
+        Axios.post('http://www.hhhhh.store/add')
             .then(res => {
-                this.setState({ value: res.data })
+                console.log(res)
             })
+        // Axios.get('https://codingstep.oss-cn-qingdao.aliyuncs.com/codeJava/3/54f8cf06-a599-4c98-9f51-5e850fab4dd7.java')
+        //     .then(res => {
+        //         this.setState({ value: res.data })
+        //     })
         
     }
 
@@ -38,12 +36,14 @@ class History extends React.Component{
                             theme: 'monokai',
                             lineNumbers: true,
                             indentUnit: 0,
+                            lockAble: true,
+                            lockedLines: [],
                             hintOptions: { completeSingle: false },
                         }}
                     />
                 </div>
-                <div className="add"></div>
-                <div className="heart"></div>
+                {/* <div className="add"></div>
+                <div className="heart"></div> */}
             </div>
         );
     }
