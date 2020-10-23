@@ -34,7 +34,7 @@ class Home extends React.Component{
         </div>
         <div className={styles.background}>
           <div className={styles.backgroundText}>
-            <span style={{fontSize: '3em'}}>网页</span><br/>写起来突出的就是一个快乐！
+            <span style={{fontSize: '3em'}}>虚宿一Kino</span><br/>世上最温柔的女孩子呢！
           </div>
         </div>
       </div>
