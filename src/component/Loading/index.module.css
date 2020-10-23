@@ -1,0 +1,30 @@
+.loading {
+  height: 100%;
+  width: 100%;
+}
+
+.loadingImg {
+  height: 8vh;
+  width: 8vh;
+  position: absolute;
+  top: 46vh;
+  left: calc(50vw - 4vh);
+  animation: circle 1.5s linear 0s infinite;
+}
+
+@keyframes circle {
+  0% { transform: rotate(0deg) }
+  50% { transform: rotate(180deg)}
+  100% { transform: rotate(360deg)}
+}
+
+.tips {
+  height: 40px;
+  width: 10vh;
+  position: absolute;
+  top: 55vh;
+  left: calc(50vw - 5vh);
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+}
