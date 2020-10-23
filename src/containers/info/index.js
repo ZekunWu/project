@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios'
-import './Info.css';
+import './index.css';
 import { Link } from 'react-router-dom'
 import ECharts from 'echarts-for-react';
 import detailImg from './detail.png'
