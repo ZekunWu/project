@@ -11,6 +11,8 @@ class Login extends React.Component{
       errState: 'none',
       imgArray: new Array(6).fill(0),
     }
+    //初次进入鼠标监听的x位置
+    this.initialX = null
   }
 
   jump = () => {
@@ -27,17 +29,29 @@ class Login extends React.Component{
   }
 
   componentDidMount() {
-    console.log(window.innerWidth)
+    console.log(document)
     document.getElementById('banner').addEventListener("mousemove", (e) => {
-      let blurIndex = Math.floor(e.offsetX / window.innerWidth * 6)
-      this.state.imgArray.forEach((item, index) => {
-        document.getElementById(`banner${index}`).style.filter = index === blurIndex? 'blur(0)' : 'blur(3px)'
-      })
+      this.initialX = this.initialX || e.offsetX
+      let deltaX = e.offsetX - this.initialX
+      document.getElementById('banner1').style.filter = `blur(${deltaX / window.innerWidth * 10}px)`
+      document.getElementById('banner4').style.filter = `blur(${Math.abs(5 - deltaX / window.innerWidth * 20)}px)`
+      document.getElementById('banner4').style.transform = `translate(${deltaX / 10}px)`
+      document.getElementById('banner2').style.transform = `translate(${deltaX / 12}px)`
+      document.getElementById('banner3').style.transform = `translate(${deltaX / 14}px)`
+      document.getElementById('banner5').style.transform = `translate(${deltaX / 16}px)`
     })
     document.getElementById('banner').addEventListener("mouseout", () => {
-      this.state.imgArray.forEach((item, index) => {
-        document.getElementById(`banner${index}`).style.filter = 'blur(3px)'
-      })
+      this.initialX = null
+      document.getElementById('banner0').style.filter = 'blur(4px)'
+      document.getElementById('banner1').style.filter = 'blur(0px)'
+      document.getElementById('banner2').style.filter = 'blur(1px)'
+      document.getElementById('banner3').style.filter = 'blur(4px)'
+      document.getElementById('banner4').style.filter = 'blur(5px)'
+      document.getElementById('banner5').style.filter = 'blur(6px)'
+      document.getElementById('banner4').style.transform = 'translate(0px)'
+      document.getElementById('banner2').style.transform = 'translate(0px)'
+      document.getElementById('banner3').style.transform = 'translate(0px)'
+      document.getElementById('banner5').style.transform = 'translate(0px)'
     })
   }
 
@@ -46,8 +60,8 @@ class Login extends React.Component{
       <div className={styles.loginPage}>
         <div className={styles.banner} id="banner">
           {this.state.imgArray.map((value, index) => 
-            <div className={styles.bannerItem} key={index} id={`banner${index}`}>
-              <img style={{height: '250px', width: '100%'}} src={imgPath(`bg${index + 1}.png`)} alt={String(index)} />
+            <div className={styles['bannerItem' + index]} key={index} id={`banner${index}`}>
+              <img style={{height: '100%', width: 'auto'}} src={imgPath(`bg${index + 1}.png`)} alt={String(index)} />
             </div>
           )}
         </div>

@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 import imgPath from '../../utils/imgPath';
 import baseUrl from '../../utils/baseUrl';
 import styles from './index.module.css';
@@ -22,7 +23,7 @@ class Home extends React.Component{
           </div>
           <div className={styles.navigation}>
             <div className={styles.navItem}>
-              <a href={`${baseUrl}/login`} className={styles.navLink}></a>
+              <Link to={'/login'} className={styles.navLink}></Link>
               <img className={styles.navIcon} src={imgPath('home.png')} alt='' />
               <div className={styles.navText}>首页</div>
             </div>
